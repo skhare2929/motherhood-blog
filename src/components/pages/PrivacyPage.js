@@ -89,8 +89,8 @@ const PrivacyPage = () => {
 
         <h3>Contact Me</h3>
         <p>
-          If you have questions about this privacy policy or how I handle your information, please contact me
-          at <strong>[your-email@example.com]</strong>.
+          If you have questions about this privacy policy or how I handle your information, please feel free to contact me through the Contact page.
+      
         </p>
 
         <HighlightBox>
