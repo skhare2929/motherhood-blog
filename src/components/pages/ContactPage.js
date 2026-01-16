@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import emailjs from '@emailjs/browser';
 import HighlightBox from '../common/HighlightBox';
 import usePageSEO from '../../hooks/usePageSEO';
 import { pageSEO } from '../../utils/seoConfig';
+import contactContent from '../../content/contact.md';
 
 const ContactPage = () => {
   usePageSEO(pageSEO.contact.title, pageSEO.contact.description);
@@ -14,6 +17,14 @@ const ContactPage = () => {
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // EmailJS Configuration
+  // Replace these with your actual EmailJS credentials
+  const EMAILJS_SERVICE_ID = 'service_v6ad6hr';
+  const EMAILJS_TEMPLATE_ID = 'template_pw7zjvy';
+  const EMAILJS_PUBLIC_KEY = 'eW7dpXqv9gX-l9Bqb';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,41 +36,71 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setShowError(false);
 
-    // In a real application, you would send the form data to a server here
-    console.log('Form submitted:', formData);
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject || 'No subject',
+      message: formData.message
+    };
 
-    // Show success message
-    setShowSuccess(true);
+    // Send email using EmailJS
+    emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_PUBLIC_KEY
+    )
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+      // Show success message
+      setShowSuccess(true);
+      setIsLoading(false);
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+    })
+    .catch((error) => {
+      console.error('Failed to send email:', error);
+      setShowError(true);
+      setIsLoading(false);
+
+      // Hide error message after 5 seconds
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
     });
-
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 5000);
   };
 
   return (
     <div className="page">
       <section className="content-section">
-        <h2>Contact Me</h2>
-        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 2rem' }}>
-          I'd love to hear from you! Whether you have a question, want to share your own experience, or just
-          want to say hello, please don't hesitate to reach out. I read every message and do my best to respond
-          to everyone.
-        </p>
+        <ReactMarkdown>{contactContent}</ReactMarkdown>
 
         {showSuccess && (
           <div className="success-message">
             <strong>✓ Message sent successfully!</strong> Thank you for reaching out. I'll get back to you
             as soon as possible!
+          </div>
+        )}
+
+        {showError && (
+          <div className="error-message">
+            <strong>✗ Failed to send message.</strong> Please try again or contact me directly via email.
           </div>
         )}
 
@@ -111,8 +152,8 @@ const ContactPage = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-button">
-            Send Message
+          <button type="submit" className="submit-button" disabled={isLoading}>
+            {isLoading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
 
@@ -121,7 +162,6 @@ const ContactPage = () => {
           <p>You can also find me on social media:</p>
           <div className="social-links">
             <a href="#instagram" onClick={(e) => e.preventDefault()}>Instagram</a>
-            <a href="#facebook" onClick={(e) => e.preventDefault()}>Facebook</a>
             <a href="#pinterest" onClick={(e) => e.preventDefault()}>Pinterest</a>
           </div>
         </div>
