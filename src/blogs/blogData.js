@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-isolation',
+    title: 'The Isolation',
+    date: 'February 17, 2026',
+    readTime: '4 min read',
+    tags: ['Motherhood', 'Postpartum', 'Breastfeeding', 'Mental Health'],
+    excerpt: `Let's talk about one of the hardest parts of being a mother. The least understood, least talked about and most overwhelming state of a new mom. Nobody really understands it until it has been felt by themselves. A new mom, sitting on a rocking chair, nursing pillow around their body, feeding the baby for hours — while a whole world outside carries on...`,
+    fullContent: null
+  },
+  {
     id: 'the-day-one',
     title: 'The Day ONE...',
     date: 'January 23, 2026',
