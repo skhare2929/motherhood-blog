@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-day-one',
+    title: 'The Day ONE...',
+    date: 'January 23, 2026',
+    readTime: '3 min read',
+    tags: ['Motherhood', 'New Parents', 'First Baby', 'Parenting Journey'],
+    excerpt: `I remember, when we first got the two double solid lines - our world changed for real... in a happy way of course. We started preparing for everything: financial aspects, our home, how to manage home and work, researching everything. Things hit hard when we brought the baby home...`,
+    fullContent: null
+  },
+  {
     id: 'lost-me-found-me',
     title: 'Lost Me; Found Me',
     date: 'January 14, 2026',
