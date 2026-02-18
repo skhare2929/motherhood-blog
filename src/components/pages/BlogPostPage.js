@@ -1,6 +1,42 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { FaWhatsapp, FaPinterest, FaLink, FaCheck } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { getPostById } from '../../blogs/blogData';
+
+const ShareButtons = ({ title }) => {
+  const [copied, setCopied] = useState(false);
+  const url = window.location.href;
+  const encodedUrl = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <div className="share-section">
+      <span className="share-label">Share:</span>
+      <div className="share-buttons">
+        <a href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`} target="_blank" rel="noopener noreferrer" className="share-icon-btn whatsapp" aria-label="Share on WhatsApp">
+          <FaWhatsapp />
+        </a>
+        <a href={`https://x.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`} target="_blank" rel="noopener noreferrer" className="share-icon-btn twitter" aria-label="Share on X">
+          <FaXTwitter />
+        </a>
+        <a href={`https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedTitle}`} target="_blank" rel="noopener noreferrer" className="share-icon-btn pinterest" aria-label="Share on Pinterest">
+          <FaPinterest />
+        </a>
+        <button onClick={copyLink} className="share-icon-btn copy-link" aria-label="Copy link">
+          {copied ? <FaCheck /> : <FaLink />}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const BlogPostPage = ({ postId, setCurrentPage }) => {
   const [content, setContent] = useState('');
@@ -57,6 +93,8 @@ const BlogPostPage = ({ postId, setCurrentPage }) => {
             <ReactMarkdown>{content}</ReactMarkdown>
           )}
         </div>
+
+        <ShareButtons title={post.title} />
       </article>
     </div>
   );

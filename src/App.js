@@ -14,9 +14,20 @@ import ContactPage from './components/pages/ContactPage';
 import StructuredData from './components/common/StructuredData';
 import { websiteStructuredData } from './utils/seoConfig';
 
+const getInitialStateFromURL = () => {
+  const path = window.location.pathname;
+  if (path.startsWith('/blog/')) {
+    const postId = path.replace('/blog/', '');
+    return { page: 'blog-post', postId };
+  }
+  const pageMap = { '/blog': 'blog', '/about': 'about', '/contact': 'contact', '/disclaimer': 'disclaimer', '/terms': 'terms', '/privacy': 'privacy' };
+  return { page: pageMap[path] || 'home', postId: null };
+};
+
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [currentPostId, setCurrentPostId] = useState(null);
+  const initial = getInitialStateFromURL();
+  const [currentPage, setCurrentPage] = useState(initial.page);
+  const [currentPostId, setCurrentPostId] = useState(initial.postId);
 
   const navigateTo = (page, postId = null) => {
     setCurrentPage(page);
@@ -70,11 +81,11 @@ function App() {
     <div className="App">
       <StructuredData data={websiteStructuredData} />
       <Header />
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Navigation currentPage={currentPage} navigateTo={navigateTo} />
       <main className="main-content" role="main" id="main-content">
         {renderPage()}
       </main>
-      <Footer setCurrentPage={setCurrentPage} />
+      <Footer navigateTo={navigateTo} />
     </div>
   );
 }

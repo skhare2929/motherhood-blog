@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = ({ navigateTo }) => {
   const handleFooterLinkClick = (e, pageId) => {
     e.preventDefault();
-    setCurrentPage(pageId);
-    window.scrollTo(0, 0);
+    navigateTo(pageId);
   };
 
   return (

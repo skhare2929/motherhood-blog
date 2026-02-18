@@ -157,14 +157,14 @@ const ContactPage = () => {
           </button>
         </form>
 
-        <div style={{ marginTop: '3rem' }}>
+        {/* <div style={{ marginTop: '3rem' }}>
           <h3>Other Ways to Connect</h3>
           <p>You can also find me on social media:</p>
           <div className="social-links">
             <a href="#instagram" onClick={(e) => e.preventDefault()}>Instagram</a>
             <a href="#pinterest" onClick={(e) => e.preventDefault()}>Pinterest</a>
           </div>
-        </div>
+        </div> */}
 
         <HighlightBox>
           <strong>What to Expect:</strong> I typically respond to messages within 2-3 business days. Please

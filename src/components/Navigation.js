@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navigation = ({ currentPage, setCurrentPage }) => {
+const Navigation = ({ currentPage, navigateTo }) => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Me' },
@@ -8,8 +8,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   ];
 
   const handleNavClick = (pageId) => {
-    setCurrentPage(pageId);
-    window.scrollTo(0, 0);
+    navigateTo(pageId);
   };
 
   return (
