@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
 import BlogPage from './components/pages/BlogPage';
+import BlogPostPage from './components/pages/BlogPostPage';
 import DisclaimerPage from './components/pages/DisclaimerPage';
 import TermsPage from './components/pages/TermsPage';
 import PrivacyPage from './components/pages/PrivacyPage';
@@ -15,15 +16,43 @@ import { websiteStructuredData } from './utils/seoConfig';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [currentPostId, setCurrentPostId] = useState(null);
+
+  const navigateTo = (page, postId = null) => {
+    setCurrentPage(page);
+    setCurrentPostId(postId);
+    const url = page === 'blog-post' ? `/blog/${postId}` : page === 'home' ? '/' : `/${page}`;
+    window.history.pushState({ page, postId }, '', url);
+    window.scrollTo(0, 0);
+  };
+
+  const navigateToPost = (postId) => navigateTo('blog-post', postId);
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = (e) => {
+      if (e.state) {
+        setCurrentPage(e.state.page || 'home');
+        setCurrentPostId(e.state.postId || null);
+      } else {
+        setCurrentPage('home');
+        setCurrentPostId(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const renderPage = () => {
     switch(currentPage) {
       case 'home':
-        return <HomePage setCurrentPage={setCurrentPage} />;
+        return <HomePage setCurrentPage={(p) => navigateTo(p)} />;
       case 'about':
         return <AboutPage />;
       case 'blog':
-        return <BlogPage />;
+        return <BlogPage navigateToPost={navigateToPost} />;
+      case 'blog-post':
+        return <BlogPostPage postId={currentPostId} setCurrentPage={(p) => navigateTo(p)} />;
       case 'disclaimer':
         return <DisclaimerPage />;
       case 'terms':
@@ -33,7 +62,7 @@ function App() {
       case 'contact':
         return <ContactPage />;
       default:
-        return <HomePage setCurrentPage={setCurrentPage} />;
+        return <HomePage setCurrentPage={(p) => navigateTo(p)} />;
     }
   };
 

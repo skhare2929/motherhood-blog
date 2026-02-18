@@ -3,7 +3,7 @@ import { getSortedPosts } from '../../blogs/blogData';
 import usePageSEO from '../../hooks/usePageSEO';
 import { pageSEO } from '../../utils/seoConfig';
 
-const BlogPage = () => {
+const BlogPage = ({ navigateToPost }) => {
   usePageSEO(pageSEO.blog.title, pageSEO.blog.description);
   const blogPosts = getSortedPosts();
 
@@ -18,6 +18,8 @@ const BlogPage = () => {
             date={post.date}
             readTime={post.readTime}
             tags={post.tags}
+            excerpt={post.excerpt}
+            navigateToPost={navigateToPost}
           />
         ))}
       </div>
