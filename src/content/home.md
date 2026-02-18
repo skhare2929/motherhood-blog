@@ -1,4 +1,4 @@
-# Welcome to My Motherhood Journey!
+# Welcome!
 
 Hi there! I'm so glad you're here. This little corner of the internet is where I share the real, unfiltered experiences of motherhood—the beautiful moments, the challenging days, and everything in between. Whether you're a new parent looking for reassurance or a seasoned pro who just needs to know you're not alone, I hope you'll find comfort and community here.
 
