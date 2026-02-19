@@ -1,11 +1,6 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Footer = ({ navigateTo }) => {
-  const handleFooterLinkClick = (e, pageId) => {
-    e.preventDefault();
-    navigateTo(pageId);
-  };
-
+const Footer = () => {
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer-content">
@@ -21,13 +16,13 @@ const Footer = ({ navigateTo }) => {
         <div className="footer-bottom">
           <p className="copyright">© 2026 My Motherhood Journey. All personal experiences shared are not medical advice.</p>
           <nav className="footer-links" aria-label="Footer navigation">
-            <a href="#disclaimer" onClick={(e) => handleFooterLinkClick(e, 'disclaimer')}>Disclaimer</a>
+            <Link to="/disclaimer">Disclaimer</Link>
             <span className="separator" aria-hidden="true">|</span>
-            <a href="#terms" onClick={(e) => handleFooterLinkClick(e, 'terms')}>Terms of Use</a>
+            <Link to="/terms">Terms of Use</Link>
             <span className="separator" aria-hidden="true">|</span>
-            <a href="#privacy" onClick={(e) => handleFooterLinkClick(e, 'privacy')}>Privacy Policy</a>
+            <Link to="/privacy">Privacy Policy</Link>
             <span className="separator" aria-hidden="true">|</span>
-            <a href="#contact" onClick={(e) => handleFooterLinkClick(e, 'contact')}>Contact</a>
+            <Link to="/contact">Contact</Link>
           </nav>
         </div>
       </div>

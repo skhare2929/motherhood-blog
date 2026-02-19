@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import DisclaimerBanner from '../common/DisclaimerBanner';
 import usePageSEO from '../../hooks/usePageSEO';
@@ -5,7 +6,8 @@ import { pageSEO } from '../../utils/seoConfig';
 import homeContent from '../../content/home.md';
 import profilePhoto from '../../assets/images/profile-photo.webp';
 
-const HomePage = ({ setCurrentPage }) => {
+const HomePage = () => {
+  const navigate = useNavigate();
   usePageSEO(pageSEO.home.title, pageSEO.home.description);
 
   const topics = [
@@ -44,10 +46,7 @@ const HomePage = ({ setCurrentPage }) => {
       <div className="cta-section">
         <button
           className="cta-button"
-          onClick={() => {
-            setCurrentPage('blog');
-            window.scrollTo(0, 0);
-          }}
+          onClick={() => navigate('/blog')}
         >
           Read the Blog
         </button>

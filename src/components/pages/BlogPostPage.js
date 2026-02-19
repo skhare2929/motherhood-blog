@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { FaWhatsapp, FaPinterest, FaLink, FaCheck } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -38,7 +39,9 @@ const ShareButtons = ({ title }) => {
   );
 };
 
-const BlogPostPage = ({ postId, setCurrentPage }) => {
+const BlogPostPage = () => {
+  const { postId } = useParams();
+  const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const post = getPostById(postId);
@@ -60,14 +63,14 @@ const BlogPostPage = ({ postId, setCurrentPage }) => {
     return (
       <div className="page">
         <p>Post not found.</p>
-        <button className="back-to-blog-btn" onClick={() => setCurrentPage('blog')}>← Back to Blog</button>
+        <button className="back-to-blog-btn" onClick={() => navigate('/blog')}>← Back to Blog</button>
       </div>
     );
   }
 
   return (
     <div className="page blog-post-page">
-      <button className="back-to-blog-btn" onClick={() => setCurrentPage('blog')}>
+      <button className="back-to-blog-btn" onClick={() => navigate('/blog')}>
         ← Back to Blog
       </button>
 

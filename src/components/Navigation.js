@@ -1,32 +1,25 @@
-import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ currentPage, navigateTo }) => {
+const Navigation = () => {
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Me' },
-    { id: 'blog', label: 'Blog' }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Me' },
+    { path: '/blog', label: 'Blog' }
   ];
-
-  const handleNavClick = (pageId) => {
-    navigateTo(pageId);
-  };
 
   return (
     <nav className="navigation" role="navigation" aria-label="Main navigation">
       <div className="nav-container">
         {navItems.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            className={`nav-link ${currentPage === item.id ? 'active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick(item.id);
-            }}
-            aria-current={currentPage === item.id ? 'page' : undefined}
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path === '/'}
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            aria-current={({ isActive }) => isActive ? 'page' : undefined}
           >
             {item.label}
-          </a>
+          </NavLink>
         ))}
       </div>
     </nav>
