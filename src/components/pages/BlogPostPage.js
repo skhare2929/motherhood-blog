@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { FaWhatsapp, FaPinterest, FaLink, FaCheck, FaHeart, FaEye } from 'react-icons/fa';
@@ -53,8 +53,6 @@ const BlogPostPage = () => {
   const [commentStatus, setCommentStatus] = useState('idle'); // idle | submitting | success | error
 
   const post = getPostById(postId);
-  const viewTracked = useRef({});
-  const commentsLoaded = useRef({});
 
   // Load markdown content
   useEffect(() => {
@@ -66,8 +64,7 @@ const BlogPostPage = () => {
 
   // Track view and fetch stats
   useEffect(() => {
-    if (viewTracked.current[postId]) return;
-    viewTracked.current[postId] = true;
+    let ignore = false;
 
     const trackView = async () => {
       const { data, error } = await supabase
@@ -76,7 +73,7 @@ const BlogPostPage = () => {
         .eq('blog_id', postId)
         .maybeSingle();
 
-      if (error) return;
+      if (ignore || error) return;
 
       if (!data) {
         const { data: inserted } = await supabase
@@ -84,18 +81,19 @@ const BlogPostPage = () => {
           .insert({ blog_id: postId, views: 1, likes: 0 })
           .select('views, likes')
           .maybeSingle();
-        if (inserted) { setViews(inserted.views); setLikes(inserted.likes); }
+        if (!ignore && inserted) { setViews(inserted.views); setLikes(inserted.likes); }
       } else {
         const newViews = data.views + 1;
         await supabase
           .from('post_stats')
           .update({ views: newViews })
           .eq('blog_id', postId);
-        setViews(newViews);
-        setLikes(data.likes);
+        if (!ignore) { setViews(newViews); setLikes(data.likes); }
       }
     };
+
     trackView();
+    return () => { ignore = true; };
   }, [postId]);
 
   // Check if this post was already liked in this browser
@@ -105,8 +103,7 @@ const BlogPostPage = () => {
 
   // Fetch approved comments
   useEffect(() => {
-    if (commentsLoaded.current[postId]) return;
-    commentsLoaded.current[postId] = true;
+    let ignore = false;
 
     const fetchComments = async () => {
       const { data } = await supabase
@@ -115,9 +112,11 @@ const BlogPostPage = () => {
         .eq('blog_id', postId)
         .eq('approved', true)
         .order('created_at', { ascending: true });
-      if (data) setComments(data);
+      if (!ignore && data) setComments(data);
     };
+
     fetchComments();
+    return () => { ignore = true; };
   }, [postId]);
 
   const handleLike = async () => {
