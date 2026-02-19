@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import { FaWhatsapp, FaPinterest, FaLink, FaCheck } from 'react-icons/fa';
+import { FaWhatsapp, FaPinterest, FaLink, FaCheck, FaHeart, FaEye } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { getPostById } from '../../blogs/blogData';
+import { supabase } from '../../supabaseClient';
 
 const ShareButtons = ({ title }) => {
   const [copied, setCopied] = useState(false);
@@ -44,20 +45,111 @@ const BlogPostPage = () => {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const post = getPostById(postId);
+  const [views, setViews] = useState(null);
+  const [likes, setLikes] = useState(null);
+  const [hasLiked, setHasLiked] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [commentStatus, setCommentStatus] = useState('idle'); // idle | submitting | success | error
 
+  const post = getPostById(postId);
+  const viewTracked = useRef({});
+  const commentsLoaded = useRef({});
+
+  // Load markdown content
   useEffect(() => {
     setIsLoading(true);
     import(`../../blogs/${postId}.md`)
-      .then(module => {
-        setContent(module.default);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.error('Error loading blog post:', err);
-        setIsLoading(false);
-      });
+      .then(module => { setContent(module.default); setIsLoading(false); })
+      .catch(err => { console.error('Error loading blog post:', err); setIsLoading(false); });
   }, [postId]);
+
+  // Track view and fetch stats
+  useEffect(() => {
+    if (viewTracked.current[postId]) return;
+    viewTracked.current[postId] = true;
+
+    const trackView = async () => {
+      const { data, error } = await supabase
+        .from('post_stats')
+        .select('views, likes')
+        .eq('blog_id', postId)
+        .maybeSingle();
+
+      if (error) return;
+
+      if (!data) {
+        const { data: inserted } = await supabase
+          .from('post_stats')
+          .insert({ blog_id: postId, views: 1, likes: 0 })
+          .select('views, likes')
+          .maybeSingle();
+        if (inserted) { setViews(inserted.views); setLikes(inserted.likes); }
+      } else {
+        const newViews = data.views + 1;
+        await supabase
+          .from('post_stats')
+          .update({ views: newViews })
+          .eq('blog_id', postId);
+        setViews(newViews);
+        setLikes(data.likes);
+      }
+    };
+    trackView();
+  }, [postId]);
+
+  // Check if this post was already liked in this browser
+  useEffect(() => {
+    setHasLiked(!!localStorage.getItem(`liked_${postId}`));
+  }, [postId]);
+
+  // Fetch approved comments
+  useEffect(() => {
+    if (commentsLoaded.current[postId]) return;
+    commentsLoaded.current[postId] = true;
+
+    const fetchComments = async () => {
+      const { data } = await supabase
+        .from('comments')
+        .select('id, name, message, created_at')
+        .eq('blog_id', postId)
+        .eq('approved', true)
+        .order('created_at', { ascending: true });
+      if (data) setComments(data);
+    };
+    fetchComments();
+  }, [postId]);
+
+  const handleLike = async () => {
+    if (hasLiked || likes === null) return;
+    const newLikes = likes + 1;
+    const { error } = await supabase
+      .from('post_stats')
+      .update({ likes: newLikes })
+      .eq('blog_id', postId);
+    if (!error) {
+      setLikes(newLikes);
+      setHasLiked(true);
+      localStorage.setItem(`liked_${postId}`, 'true');
+    }
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    setCommentStatus('submitting');
+    const { error } = await supabase
+      .from('comments')
+      .insert({ blog_id: postId, name: form.name, email: form.email, message: form.message });
+    if (error) {
+      setCommentStatus('error');
+    } else {
+      setCommentStatus('success');
+      setForm({ name: '', email: '', message: '' });
+    }
+  };
+
+  const formatDate = (dateStr) =>
+    new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   if (!post) {
     return (
@@ -76,11 +168,30 @@ const BlogPostPage = () => {
 
       <article className="blog-post-full">
         <h1>{post.title}</h1>
+
         <div className="post-meta">
           <span className="post-date">{post.date}</span>
           <span className="separator">•</span>
           <span className="post-read-time">{post.readTime}</span>
         </div>
+
+        <div className="post-stats">
+          {views !== null && (
+            <span className="views-count">
+              <FaEye aria-hidden="true" /> {views.toLocaleString()} views
+            </span>
+          )}
+          <button
+            className={`like-btn${hasLiked ? ' liked' : ''}`}
+            onClick={handleLike}
+            disabled={hasLiked || likes === null}
+            aria-label={hasLiked ? 'Already liked' : 'Like this post'}
+          >
+            <FaHeart aria-hidden="true" />
+            {likes !== null ? likes.toLocaleString() : '…'}
+          </button>
+        </div>
+
         {post.tags && post.tags.length > 0 && (
           <div className="post-tags">
             {post.tags.map((tag, index) => (
@@ -90,14 +201,87 @@ const BlogPostPage = () => {
         )}
 
         <div className="post-full-content">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <ReactMarkdown>{content}</ReactMarkdown>
-          )}
+          {isLoading ? <p>Loading...</p> : <ReactMarkdown>{content}</ReactMarkdown>}
         </div>
 
         <ShareButtons title={post.title} />
+
+        <div className="comments-section">
+          <h3>Comments{comments.length > 0 && ` (${comments.length})`}</h3>
+          {comments.length === 0 ? (
+            <p className="no-comments">No comments yet. Be the first to share your thoughts!</p>
+          ) : (
+            comments.map(comment => (
+              <div key={comment.id} className="comment-card">
+                <div className="comment-meta">
+                  <span className="comment-author">{comment.name}</span>
+                  <span className="comment-date">{formatDate(comment.created_at)}</span>
+                </div>
+                <p className="comment-message">{comment.message}</p>
+              </div>
+            ))
+          )}
+        </div>
+
+        <div className="comment-form-section">
+          <h3>Leave a Comment</h3>
+          <p className="comment-form-note">Comments are reviewed before being published.</p>
+          {commentStatus === 'success' ? (
+            <div className="success-message">
+              Thank you! Your comment will appear here once approved.
+            </div>
+          ) : (
+            <form className="comment-form" onSubmit={handleCommentSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="comment-name">Name *</label>
+                  <input
+                    id="comment-name"
+                    type="text"
+                    value={form.name}
+                    onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                    required
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="comment-email">
+                    Email * <span className="email-note">(not displayed)</span>
+                  </label>
+                  <input
+                    id="comment-email"
+                    type="email"
+                    value={form.email}
+                    onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                    required
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="comment-message">Comment *</label>
+                <textarea
+                  id="comment-message"
+                  rows={4}
+                  value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  required
+                  placeholder="Share your thoughts..."
+                />
+              </div>
+              {commentStatus === 'error' && (
+                <div className="error-message">Something went wrong. Please try again.</div>
+              )}
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={commentStatus === 'submitting'}
+              >
+                {commentStatus === 'submitting' ? 'Submitting…' : 'Submit Comment'}
+              </button>
+            </form>
+          )}
+        </div>
       </article>
     </div>
   );
