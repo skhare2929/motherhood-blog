@@ -3,6 +3,7 @@ import DisclaimerBanner from '../common/DisclaimerBanner';
 import usePageSEO from '../../hooks/usePageSEO';
 import { pageSEO } from '../../utils/seoConfig';
 import homeContent from '../../content/home.md';
+import profilePhoto from '../../assets/images/profile-photo.webp';
 
 const HomePage = ({ setCurrentPage }) => {
   usePageSEO(pageSEO.home.title, pageSEO.home.description);
@@ -18,8 +19,13 @@ const HomePage = ({ setCurrentPage }) => {
     <div className="page">
       <DisclaimerBanner />
 
-      <section className="content-section">
-        <ReactMarkdown>{homeContent}</ReactMarkdown>
+      <section className="hero-section">
+        <div className="hero-photo-wrapper">
+          <img src={profilePhoto} alt="Profile" className="hero-profile-photo" />
+        </div>
+        <div className="hero-text">
+          <ReactMarkdown>{homeContent}</ReactMarkdown>
+        </div>
       </section>
 
       <section className="content-section">
