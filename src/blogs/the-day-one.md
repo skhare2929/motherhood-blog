@@ -1,7 +1,7 @@
 
 I remember, when we first got the two double solid lines - our world changed for real... in a happy way of course. We started preparing for everything: financial aspects, our home, how to manage home and work, researching everything, educating ourselves etc. We were really confident and felt prepared, since it was me and my husband who were taking care of every little thing since the pregnancy started.
 
-Things hit hard when we arrived home for the first time with our baby. Since the delivery, a lot of things were being managed by the mother and baby care team at the hospital. They were helping us, training us; so that we'll be able to handle things at home. As this was our first time being parents, everything was new to us and we were being careful, protective, paranoid... whatever you want to call it.
+Things hit hard when we arrived home for the first time with our baby. At the hospital, the mother-and-baby care team had been guiding us in many ways — taking care of so much while also patiently teaching us how to handle a newborn. But once we were home, it was just us. As first parents everything was new to us and we were being careful, protective, and may be a little paranoid...but in the most loving and caring way. It was overwhelming and beautiful all at once.
 
 At home, there was a moment when we were alone with the baby for the first time, and were like, now what...? what to do next...? That's when all the preparation came into picture... and we were not prepared for that. Theory was fine, reading was fine, thinking of handling the situation and actually handling the situation are two very different things... And WE KNOW THAT NOW...
 
