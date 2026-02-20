@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import emailjs from '@emailjs/browser';
 import { FaWhatsapp, FaPinterest, FaLink, FaCheck, FaHeart, FaEye } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { getPostById } from '../../blogs/blogData';
 import { supabase } from '../../supabaseClient';
+
+const EMAILJS_SERVICE_ID = 'service_v6ad6hr';
+const EMAILJS_COMMENT_TEMPLATE_ID = 'template_yzkpkyn';
+const EMAILJS_PUBLIC_KEY = 'eW7dpXqv9gX-l9Bqb';
 
 const ShareButtons = ({ title }) => {
   const [copied, setCopied] = useState(false);
@@ -141,10 +146,23 @@ const BlogPostPage = () => {
       .insert({ blog_id: postId, name: form.name, email: form.email, message: form.message });
     if (error) {
       setCommentStatus('error');
-    } else {
-      setCommentStatus('success');
-      setForm({ name: '', email: '', message: '' });
+      return;
     }
+    setCommentStatus('success');
+    setForm({ name: '', email: '', message: '' });
+    emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_COMMENT_TEMPLATE_ID,
+      {
+        commenter_name: form.name,
+        commenter_email: form.email,
+        blog_post: postId,
+        comment_message: form.message,
+      },
+      EMAILJS_PUBLIC_KEY
+    ).catch(err => {
+      console.error('Comment notification email failed (non-critical):', err);
+    });
   };
 
   const formatDate = (dateStr) =>
