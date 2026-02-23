@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-silent-partner',
+    title: 'The Silent Efforts of a Partner',
+    date: 'February 22, 2026',
+    readTime: '4 min read',
+    tags: ['Motherhood', 'Relationships', 'Postpartum', 'Parenting Journey'],
+    excerpt: `When two people start a serious relationship, it's just the two of them driving it forward. Then things change — a third person arrives. A baby's arrival tests everything in you: your patience, your resilience, your tolerance, and most importantly, the strength of your bond. In this piece, I want to talk about the person quietly working behind the scenes — The Silent Partner.`,
+    fullContent: null
+  },
+  {
     id: 'the-isolation',
     title: 'The Isolation',
     date: 'February 17, 2026',

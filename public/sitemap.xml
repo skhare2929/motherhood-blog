@@ -24,6 +24,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog Post: The Silent Efforts of a Partner -->
+  <url>
+    <loc>https://www.chaosandcuddling.com/blog/the-silent-partner</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Post: The Isolation -->
   <url>
     <loc>https://www.chaosandcuddling.com/blog/the-isolation</loc>
