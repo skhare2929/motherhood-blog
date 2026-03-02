@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'why-the-debt',
+    title: 'The Debt That Was Never Theirs to Carry',
+    date: 'March 2, 2026',
+    readTime: '5 min read',
+    tags: ['Motherhood', 'Parenting', 'Culture', 'Breaking Stereotypes'],
+    excerpt: `In many cultures and belief systems, there exists this unspoken notion of burdening a child with the debt of simply being born. I never really understood it. Questioned it? Absolutely, many times. Did I ever get a clear answer? Never. Until one day, when I became a mother — and everything became clear.`,
+    fullContent: null
+  },
+  {
     id: 'the-silent-partner',
     title: 'The Silent Efforts of a Partner',
     date: 'February 22, 2026',
