@@ -1,4 +1,4 @@
-This might be a controversial, uncomfortable topic for many. But someone has to say it — so here I am, saying it.
+This might be a little controversial and uncomfortable topic for many. But someone has to say it — so here I am, saying it.
 
 In many cultures and belief systems, there exists this unspoken notion of burdening a child with the debt of simply being born. I never really understood it. Questioned it? Absolutely, many times. Did I ever get a clear answer? Never. Until one day, when I became a mother — and everything became clear.
 
