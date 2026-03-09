@@ -2,9 +2,11 @@
 
 ## My Story
 
-Hello! I'm Suraksha, an Engineer by degree and currently a full time mom, sharing my journey through the beautiful chaos of parenthood. From sleepless nights to heartwarming milestones, I'm documenting it all here. I believe in honest conversations about motherhood—the good, the challenging, and everything in between.
+Hi, I'm Suraksha Khare — a wife, mom of a high energy toddler boy, and someone who has always believed in being honest over being polished.
+As a mother, I often found myself in situations when my emotions could not find the right words to express what I was feeling. That is when I realized - there are things that need to be said exactly as they are.
+And I want to say it all. 🤍
 
-Before becoming a mother, I never imagined how transformative this journey would be, and how it will change the Me in me. This blog is my way of processing the experience, connecting with other parents, and creating a space where we can all feel a little less alone in this adventure.
+Before becoming a mother, I never imagined how transformative this journey would be, and how it will change the Me in me. I hold a master's degree in engineering — and still, nothing could have prepared me for the journey of the past few years. This blog is my way of processing the experience, connecting with other parents, and creating a space where we can all feel a little less alone in this adventure.
 
 ## Why I Started This Blog
 
