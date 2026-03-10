@@ -24,6 +24,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog Post: The Sleep Chapter -->
+  <url>
+    <loc>https://www.chaosandcuddling.com/blog/the-sleep-chapter</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Post: Why The Debt? -->
   <url>
     <loc>https://www.chaosandcuddling.com/blog/why-the-debt</loc>

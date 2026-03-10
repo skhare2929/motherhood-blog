@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-sleep-chapter',
+    title: 'The Sleep Chapter',
+    date: 'March 9, 2026',
+    readTime: '6 min read',
+    tags: ['Motherhood', 'New Parents', 'Baby Sleep', 'Postpartum'],
+    excerpt: `If you ask any parent about their newborn's sleep schedule, I can guarantee you'll get all sorts of answers filled with nostalgia, exhaustion, and joyful learnings. For us, it took two full years before I could say with any confidence that he actually slept for a few hours in one go. This is our story — not a guide, not a set of tips, just the honest account of how we found our rhythm in the middle of the night.`,
+    fullContent: null
+  },
+  {
     id: 'why-the-debt',
     title: 'The Debt That Was Never Theirs to Carry',
     date: 'March 2, 2026',
