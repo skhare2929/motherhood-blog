@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import DisclaimerBanner from '../common/DisclaimerBanner';
+import NewsletterSignup from '../common/NewsletterSignup';
 import usePageSEO from '../../hooks/usePageSEO';
 import { pageSEO } from '../../utils/seoConfig';
 import homeContent from '../../content/home.md';
@@ -51,6 +52,8 @@ const HomePage = () => {
           Read the Blog
         </button>
       </div>
+
+      <NewsletterSignup />
     </div>
   );
 };
