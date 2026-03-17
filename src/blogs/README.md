@@ -9,30 +9,35 @@ This folder contains all blog post content and metadata for the motherhood blog.
    - Topics: Joy in the newborn phase, gratitude, the moments we forget to mention
    - Tags: Motherhood, Newborn, Gratitude, Postpartum
 
-3. **Sleep Training: Our Journey to Peaceful Nights** (`sleep-training-journey.md`)
-   - Date: January 8, 2026
-   - Topics: Sleep training methods, our experience, tips for success
-   - Tags: Sleep, Baby Sleep, Sleep Training, Parenting Tips
+2. **The Sleep Chapter** (`the-sleep-chapter.md`)
+   - Date: March 9, 2026
+   - Topics: Newborn sleep, sleep training decision, finding a rhythm
+   - Tags: Motherhood, New Parents, Baby Sleep, Postpartum
 
-4. **First Foods: Our Baby-Led Weaning Experience** (`baby-led-weaning.md`)
-   - Date: January 5, 2026
-   - Topics: Baby-led weaning vs purees, safety, first foods, the mess
-   - Tags: Feeding, Baby-Led Weaning, First Foods, Starting Solids
+3. **The Debt That Was Never Theirs to Carry** (`why-the-debt.md`)
+   - Date: March 2, 2026
+   - Topics: Cultural expectations, parenting philosophy, gratitude
+   - Tags: Motherhood, Parenting, Culture, Breaking Stereotypes
 
-5. **Postpartum Reality: What I Wish I Had Known** (`postpartum-reality.md`)
-   - Date: January 2, 2026
-   - Topics: Physical recovery, emotional changes, identity shifts, support
-   - Tags: Postpartum, Mental Health, Motherhood, Recovery, Real Talk
+4. **The Silent Efforts of a Partner** (`the-silent-partner.md`)
+   - Date: February 22, 2026
+   - Topics: Partnership, postpartum support, relationship dynamics
+   - Tags: Motherhood, Relationships, Postpartum, Parenting Journey
 
-6. **Mom Guilt: Learning to Give Myself Grace** (`mom-guilt-survival.md`)
-   - Date: December 28, 2025
-   - Topics: Dealing with mom guilt, self-compassion, impossible standards
-   - Tags: Mom Guilt, Mental Health, Self-Care, Parenting
+5. **The Isolation** (`the-isolation.md`)
+   - Date: February 17, 2026
+   - Topics: Postpartum isolation, breastfeeding, mental health
+   - Tags: Motherhood, Postpartum, Breastfeeding, Mental Health
 
-7. **The First Year: Milestones, Tears, and Triumph** (`first-year-milestones.md`)
-   - Date: December 20, 2025
-   - Topics: Month-by-month milestones, challenges, reflections on year one
-   - Tags: Milestones, First Year, Baby Development, Reflections
+6. **The Day ONE...** (`the-day-one.md`)
+   - Date: January 23, 2026
+   - Topics: Bringing baby home, first-time parenting, early days
+   - Tags: Motherhood, New Parents, First Baby, Parenting Journey
+
+7. **Lost Me; Found Me** (`lost-me-found-me.md`)
+   - Date: January 14, 2026
+   - Topics: Identity, self-discovery, personal journey through parenting
+   - Tags: Motherhood, Self-Discovery, Personal Journey, Parenting
 
 ## How Blog Posts Work
 
