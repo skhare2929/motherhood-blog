@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-joy-i-forgot-to-mention',
+    title: 'The Joy I Forgot to Mention',
+    date: 'March 17, 2026',
+    readTime: '4 min read',
+    tags: ['Motherhood', 'Newborn', 'Gratitude', 'Postpartum'],
+    excerpt: `After our baby was born, whenever someone asked me about how the newborn phase was going, the first thing that used to come out of my mouth was: *"oh, it's tiring. It's a lot. I'm exhausted."* Those words did come eventually — but only after I'd covered all the hard parts first. Now I wonder, amidst all that settling into new life — there were countless, priceless moments. The coos, the lifting of the neck, the bobbly head, the newborn scrunches. It was amazing. And we miss them a lot.`,
+    fullContent: null
+  },
+  {
     id: 'the-sleep-chapter',
     title: 'The Sleep Chapter',
     date: 'March 9, 2026',

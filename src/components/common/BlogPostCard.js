@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 const BlogPostCard = ({ postId, title, date, readTime, tags, excerpt }) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const BlogPostCard = ({ postId, title, date, readTime, tags, excerpt }) => {
           ))}
         </div>
       )}
-      <p className="post-excerpt">{excerpt}</p>
+      <div className="post-excerpt"><ReactMarkdown>{excerpt}</ReactMarkdown></div>
       <span className="read-more-btn">Read More →</span>
     </article>
   );
