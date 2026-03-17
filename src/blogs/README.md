@@ -4,27 +4,32 @@ This folder contains all blog post content and metadata for the motherhood blog.
 
 ## Current Blog Posts
 
-1. **Sleep Training: Our Journey to Peaceful Nights** (`sleep-training-journey.md`)
+1. **The Joy I Forgot to Mention** (`the-joy-i-forgot-to-mention.md`)
+   - Date: March 17, 2026
+   - Topics: Joy in the newborn phase, gratitude, the moments we forget to mention
+   - Tags: Motherhood, Newborn, Gratitude, Postpartum
+
+3. **Sleep Training: Our Journey to Peaceful Nights** (`sleep-training-journey.md`)
    - Date: January 8, 2026
    - Topics: Sleep training methods, our experience, tips for success
    - Tags: Sleep, Baby Sleep, Sleep Training, Parenting Tips
 
-2. **First Foods: Our Baby-Led Weaning Experience** (`baby-led-weaning.md`)
+4. **First Foods: Our Baby-Led Weaning Experience** (`baby-led-weaning.md`)
    - Date: January 5, 2026
    - Topics: Baby-led weaning vs purees, safety, first foods, the mess
    - Tags: Feeding, Baby-Led Weaning, First Foods, Starting Solids
 
-3. **Postpartum Reality: What I Wish I Had Known** (`postpartum-reality.md`)
+5. **Postpartum Reality: What I Wish I Had Known** (`postpartum-reality.md`)
    - Date: January 2, 2026
    - Topics: Physical recovery, emotional changes, identity shifts, support
    - Tags: Postpartum, Mental Health, Motherhood, Recovery, Real Talk
 
-4. **Mom Guilt: Learning to Give Myself Grace** (`mom-guilt-survival.md`)
+6. **Mom Guilt: Learning to Give Myself Grace** (`mom-guilt-survival.md`)
    - Date: December 28, 2025
    - Topics: Dealing with mom guilt, self-compassion, impossible standards
    - Tags: Mom Guilt, Mental Health, Self-Care, Parenting
 
-5. **The First Year: Milestones, Tears, and Triumph** (`first-year-milestones.md`)
+7. **The First Year: Milestones, Tears, and Triumph** (`first-year-milestones.md`)
    - Date: December 20, 2025
    - Topics: Month-by-month milestones, challenges, reflections on year one
    - Tags: Milestones, First Year, Baby Development, Reflections
