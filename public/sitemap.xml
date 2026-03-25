@@ -19,9 +19,17 @@
   <!-- Blog Listing Page -->
   <url>
     <loc>https://www.chaosandcuddling.com/blog</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Post: The Unfinished -->
+  <url>
+    <loc>https://www.chaosandcuddling.com/blog/the-unfinished</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Blog Post: The Joy I Forgot to Mention -->

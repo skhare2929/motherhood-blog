@@ -4,7 +4,12 @@ This folder contains all blog post content and metadata for the motherhood blog.
 
 ## Current Blog Posts
 
-1. **The Joy I Forgot to Mention** (`the-joy-i-forgot-to-mention.md`)
+1. **The Unfinished** (`the-unfinished.md`)
+   - Date: March 23, 2026
+   - Topics: The mental weight of leaving everything half-done, interrupted focus, identity
+   - Tags: Motherhood, Mental Load, Postpartum, Identity
+
+2. **The Joy I Forgot to Mention** (`the-joy-i-forgot-to-mention.md`)
    - Date: March 17, 2026
    - Topics: Joy in the newborn phase, gratitude, the moments we forget to mention
    - Tags: Motherhood, Newborn, Gratitude, Postpartum

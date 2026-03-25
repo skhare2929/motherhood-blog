@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-unfinished',
+    title: 'The Unfinished',
+    date: 'March 23, 2026',
+    readTime: '5 min read',
+    tags: ['Motherhood', 'Mental Load', 'Postpartum', 'Identity'],
+    excerpt: `When we talk about motherhood, we cover everything — pregnancy, postpartum, mental load, newborn routines. But somewhere between all of that, something quieter happens. Something every mother feels but nobody really names. We start things and can't finish them. Every single day. As mothers, we enter the world of "The Unfinished".`,
+    fullContent: null
+  },
+  {
     id: 'the-joy-i-forgot-to-mention',
     title: 'The Joy I Forgot to Mention',
     date: 'March 17, 2026',
