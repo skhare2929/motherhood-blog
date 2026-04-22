@@ -1,9 +1,9 @@
 
 **Wow!!!**
 
-When I thought of writing about my journey, these words echoed in my mind, like giving me some direction or nudging me towards something... I think this was it—a journey, a sense of belonging.
+When I thought of writing about my journey, these words echoed in my mind, like giving me some direction or nudging me towards something... I think this was it - a journey, a sense of belonging.
 
-These are not just words for me; they represent my persona. The meaning is simple: Through my years of parenting, I felt like I literally lost myself, faded somewhere—around many people but still isolated. Yup!!! Felt it all. You name it, I have felt it. But for the past year, I found a new me: renewed, invigorated.
+These are not just words for me; they represent my persona. The meaning is simple: Through my years of parenting, I felt like I literally lost myself, faded somewhere-around many people but still isolated. Yup!!! Felt it all. You name it, I have felt it. But for the past year, I found a new me: renewed, invigorated.
 
 
 
