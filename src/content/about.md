@@ -2,17 +2,17 @@
 
 ## My Story
 
-Hi, I'm Suraksha Khare — a wife, mom of a high energy toddler boy, and someone who has always believed in being honest over being polished.
+Hi, I'm Suraksha Khare - a wife, mom of a high energy toddler boy, and someone who has always believed in being honest over being polished.
 As a mother, I often found myself in situations when my emotions could not find the right words to express what I was feeling. That is when I realized - there are things that need to be said exactly as they are.
 And I want to say it all. 🤍
 
-Before becoming a mother, I never imagined how transformative this journey would be, and how it will change the Me in me. I hold a master's degree in engineering — and still, nothing could have prepared me for the journey of the past few years. This blog is my way of processing the experience, connecting with other parents, and creating a space where we can all feel a little less alone in this adventure.
+Before becoming a mother, I never imagined how transformative this journey would be, and how it will change the Me in me. I hold a master's degree in engineering - and still, nothing could have prepared me for the journey of the past few years. This blog is my way of processing the experience, connecting with other parents, and creating a space where we can all feel a little less alone in this adventure.
 
 ## Why I Started This Blog
 
 I started this blog because I wanted to share the real side of motherhood. Not the perfectly filtered Instagram version, but the messy, beautiful, exhausting, joyful reality. When I was a new mom, I felt so isolated and wondered if everyone else had it more together than I did. Spoiler alert: they didn't!
 
-My hope is that by sharing my experiences—both the wins and the struggles—other parents will feel less alone. Whether you're dealing with sleep regression, figuring out feeding, or just trying to survive the toddler years, I want you to know: you're doing great, and it's okay to not have all the answers.
+My hope is that by sharing my experiences-both the wins and the struggles-other parents will feel less alone. Whether you're dealing with sleep regression, figuring out feeding, or just trying to survive the toddler years, I want you to know: you're doing great, and it's okay to not have all the answers.
 
 ## What You'll Find Here
 
