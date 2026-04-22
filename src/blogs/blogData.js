@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-role',
+    title: 'The Role',
+    date: 'April 22, 2026',
+    readTime: '4 min read',
+    tags: ['Motherhood', 'Modern Parenting', 'Identity', 'Mental Load'],
+    excerpt: `There are things which one cannot understand fully until they experience it on their own. The joy of priceless moments and the brutal reality of it - motherhood taught me both. It's rewarding, it's fulfilling, and at the same time it's draining, it's challenging. The realization - it's not a role; it's the role.`,
+    fullContent: null
+  },
+  {
     id: 'the-unfinished',
     title: 'The Unfinished',
     date: 'March 23, 2026',
