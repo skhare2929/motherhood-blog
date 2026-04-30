@@ -15,6 +15,15 @@
 
 export const blogPosts = [
   {
+    id: 'the-choice-of-presence',
+    title: 'The Choice of Presence',
+    date: 'April 29, 2026',
+    readTime: '5 min read',
+    tags: ['Motherhood', 'Career', 'Identity', 'Modern Parenting', 'Leadership'],
+    excerpt: `For a long time, I viewed my career and my personal life as two separate operating systems. When people talk about choosing to be present with their kids, they often use words like "taking a break" or the dreaded "career gap." But the more I analyzed the big picture, the more that term felt like a technical error. It's not a gap. It's a shift in management.`,
+    fullContent: null
+  },
+  {
     id: 'the-role',
     title: 'The Role',
     date: 'April 22, 2026',
